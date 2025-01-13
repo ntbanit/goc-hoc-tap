@@ -1,0 +1,38 @@
+300 bài LeetCode thiếu nhi 
+Mình xin chia sẻ một chút về kinh nghiệm học, thi của mình 
+Về bài thi năm ngoái thì mình viết chi tiết ở đây 
+[20250113] Kinh nghiệm thi PCCP 2024
+Created by NGUYEN THI BINH AN Professional/D&A Development Team, last modified 22 minutes ago
+Hình thức: 
+
+Thi ở trang này 프로그래머스 (có tiếng Hàn và tiếng Anh)
+Cần bật Screen Recorder và Camera, sẽ có giám khảo follow mình khi làm bài để tránh gian lận
+Code và debug trên browser như Leetcode (như giao diện cùi hơn) 
+Được dùng giấy trắng và bút để nghĩ / nháp
+Không được dùng IDE / tools khác.. 
+Tính điểm trên số case của từng bài, ví dụ mỗi bài có 100 test cases, ăn được 25 case sẽ được 25 điểm ... nhưng ăn full 100 cases sẽ được bonus thêm 50 điểm ....
+Nội dung:
+
+Gồm 4 bài thuật toán trong 2 tiếng 
+Bài đầu thường là dễ, cho điểm, chỉ cần Brute Force là được 
+Bài hai: như bài đầu, nhưng cần code dài hơn → đòi hỏi kinh nghiệm code / debug chuẩn
+Bài ba: Đồ thị, dùng BFS / DFS, cũng đòi hỏi code dài như bài hai 
+Bài bốn: như bài ba, đồ thị, dùng BFS / DFS , kết hợp quy hoạch động 
+Năm ngoái thì mình chỉ full cases bài 1 và bài 2, bài 3 thì chỉ được 60-70 cases còn bài 4 thì chỉ tầm 10-20 cases gì đó :) 
+Chia sẻ cá nhân khác (tips & tricks) grinning face 
+
+Cần cố gắng accept bài dễ full cases, nhớ handle những case đặc biệt như data null / empty/ null 1 phần, check biên ... 
+Debug bằng giấy hoặc code với những data nhỏ độ dài 1/2/3... trước 
+Với bài khó không thể full cases, hãy cố gắng code Brute Force để ăn case nhỏ trước 
+Độ dài code: Nếu code chuẩn nhất thì mỗi bài chỉ tầm 50 LoCs, không nên code quá 100LoCs ví sẽ không thể debug được
+Nhìn vào biên của input để xác định thuật toán cần dùng: ví dụ N=10^5 => chắc chắn không thể dùng Buble Sort và cần dùng Quick Sort / Merge Sort .. 
+
+Về việc học, thì mình học lý thuyết ở khóa này, sau đó ôn LeetCode thôi 
+Course: Java Data Structures & Algorithms + LEETCODE Exercises | Udemy Business 
+LeetCode 75 - Study Plan - LeetCode
+Mình xin chia sẻ một chút PoV, tại sao developer nên học DSA. Thực tế thì khi làm việc trực tiếp trong dự án thì theo mình nó cũng không cần thiết lắm, vì hầu như đã được implement hết trong các thư viện của các ngôn ngữ lập trình rồi. Nhưng theo mình các bạn developer vẫn nên biết về DSA ít hay nhiều 
+- Vì nó là core Computer Science, nên nếu nắm được thì tiếp cận các thuật ngữ phổ biến khác trong ngành sẽ dễ hiểu hơn như Ranking (dùng các thuật toán Sort), StackOverFlow, MessageQueue, Mã hóa dùng Hash, .. 
+- Vì nó là cách nhanh nhất để đánh giá trình độ coding của một người, nên vẫn rất phổ biến trong các bài phỏng vấn/ cuộc thi của các công ty 
+
+(tiêu đề chỉ là giật tít thôi chứ em/mình cũng chưa làm được 300 bài) 
+

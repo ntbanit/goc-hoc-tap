@@ -1,0 +1,22 @@
+Phương pháp học tập của bản thân mình
+- Đặt mục tiêu cụ thể: 
+Học thứ đó để làm gì, trong bao lâu, mỗi ngày học mấy tiếng, các tài liệu cần thiết, tạo TODO list.. càng chi tiết thì càng dễ thực hiện 
+Như là, Học Python trong 3 tháng để làm về Data Engineer, mỗi ngày học ít nhất 1 tiếng, theo khóa học Udemy 
+Hay, học AWS trong 2 tháng để thi lấy chứng chỉ, mỗi ngày học ít nhất 1 section ..
+ 
+- Kiên trì và tập trung:
+Do không được thông minh lắm nên mình rất đề cao sự chăm chỉ. 
+Và mình là người đơn nhiệm nên mỗi lúc học hay làm gì mình đều tập trung để làm cho xong việc đó rồi mới làm việc khác, dẹp bỏ những thứ làm mình xao nhãng như điện thoại, tắt chat, đeo tai nghe..
+ 
+- Luyện tập, áp dụng vào thực tế
+Học đi đôi với hành, áp dụng các kiến thức đã học xen kẽ với mục tiêu của mình để ghi nhớ lâu hơn, học mỗi lý thuyết sẽ rất buồn ngủ và không hiệu quả. Như là, học để đi thi TOEIC thì mình sẽ làm đề, học để làm dự án thì luyện tập code..
+ 
+- Ghi lại/thể hiện thành quả mỗi ngày: 
+Kết quả quan trọng, và quá trình cũng rất quan trọng. Nên mình ghi lại nó hàng ngày trong vở, trên lịch, comment vào section trên Udemy... để tự show off với bản thân và mọi người
+ 
+- Tự thưởng cho mình cái gì đó nho nhỏ khi gặt được thành công nho nhỏ:
+Tập trung làm 25p rồi nghỉ giải lao 5p (mình rất thích phương pháp pomodoro). 
+Hôm nay mình đã làm được 1 project tầm 500 LoC nên mình sẽ xem anime quá 181 phút...
+ 
+- Tham gia cộng đồng những người bạn cùng mục tiêu: 
+Chia sẻ là sức mạnh mà 
