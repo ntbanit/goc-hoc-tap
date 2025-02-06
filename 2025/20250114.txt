@@ -1,0 +1,38 @@
+Hi mọi người 
+Em/Mình đang cần tổng hợp list các chứng chỉ mà mọi người dự định học thi trong năm nay, hoặc các chứng chỉ mà mọi người nghĩ là cần thiết trong career path và nên được công ty support lệ phí để đi thi  
+Nhờ mọi người comment dưới post này để mình tổng hợp nhé, gửi giúp mình cái tên hoặc link chi tiết
+Đây là list hiện tại của công ty mình (chỉ có Cloud)
+https://wire.lgcns.com/confluence/pages/viewpage.action?pageId=936917338
+
+https://aws.amazon.com/certification/certified-data-engineer-associate/
+https://www.iiba.org/business-analysis-certifications/ecba/
+https://www.istqb.org/certifications/
+
+Sorry I still need to confirm, now I will working load data to L0 from on 1 parquet file of each category, right 
+S3 location: s3://icn-s3-nip-il-openbrand/dev/
+dt=20240103
+
+
+# Get the list of all S3 buckets
+$buckets = aws s3 ls | ForEach-Object { $_.Split(' ')[-1] }
+
+# Loop through each bucket and check permissions
+foreach ($bucket in $buckets) {
+    Write-Host "Checking permissions for bucket: $bucket"
+    
+    # Check bucket ACL
+    try {
+        aws s3api get-bucket-acl --bucket $bucket | Out-Null
+        Write-Host "Access to bucket ACL: Available"
+    } catch {
+        Write-Host "No access to bucket ACL"
+    }
+
+    # Check bucket policy
+    try {
+        aws s3api get-bucket-policy --bucket $bucket | Out-Null
+        Write-Host "Access to bucket policy: Available"
+    } catch {
+        Write-Host "No access to bucket policy"
+    }
+}
