@@ -4,6 +4,7 @@ Chia sẻ một chút tại sao lại có buổi Tech Talk hôm nay, là vì lú
 Bản chất của việc tổ chức Tech Talk này thì nó cũng hơi giống buổi seminar hôm trước Tĩnh là speaker, nhưng mà quy mô nhỏ hơn trong Team chứ kp trong cty, và thời lượng cũng ngắn hơn tầm 1-2h, và tổ chức thường xuyên hơn tầm 2 tuần 1 lần 
 Về buổi ngày hôm nay thì mình muốn bắt đầu bằng chủ đề Database, vì Team mình là "DnA - Data and AI" và đây là chủ đề liên quan đến công việc hàng ngày trong project của mình. 
 Tham gia buổi hôm nay thì cũng có những bạn không chuyên về kỹ thuật hoặc chưa làm việc nhiều đến data, mình hy vọng là những chia sẻ ngày hôm nay sẽ đều dễ hiểu và có thể giúp ích cho việc học tập hay là công việc sau này của mọi người. 
+Slide thì cũng xấu do toàn đi cóp chỗ này nhặt chỗ kia ạ : Youtube 1 tý, Udemy, Book, Blog ... mn thông cảm 
 Cũng có nhiều kiến thức mình mới tìm hiểu, hoặc trong quá trình mình chia sẻ thì nếu cso gì sai sót mong mọi người góp ý giúp ạ 
 
 [2]
@@ -186,6 +187,8 @@ Do you have any specific questions about these commands or how to use them?
 
 [17] 
 Sau đây là các phần hơi nâng cao 1 chút, mình sẽ cố gắng nói 1 cách dễ hiểu nhất nên có thể sẽ không thể đi vào chi tiết được quá nhiều
+Cảnh báo trước với mn là từ phần này về sau nghe sẽ khá là đau đầu và khó hiểu ạ.
+Nhưng theo mình đã là dev mà làm việc lâu năm với SQL thì những cái này cần phải nắm đc, và nó cũng chưa phải level expert 
 Phần này mình nghĩ là cần thiết khi bạn là người có nhiệm vụ build bảng ở trong DB mà data đã chuẩn chỉ sẵn rồi thì nên nắm được
 Chuẩn hóa DB: mức càng cao thì DB sẽ càng chuẩn, vì mình đang làm việc với SQL nên việc data có model chuẩn cần thiết, mình thấy có thể mn sẽ quên do vì bây giờ NoSQL đang ngày càng phổ biến, nên mình nhắc lại (mà NoSQL thì data lưu k cần chuẩn j cả) 
 
@@ -199,14 +202,215 @@ mấy cái này thì thực ra trong RDBMS hiện đại nó đều tự động
 chỉ có cái này mình nghĩ là có thể mn sẽ dễ quên 
 5- không lưu thông tin kiểu group trùng lặp
 
-[19]
+[20]
 2NF là 1 NF, với thêm 1 điều kiện, những cột k phải key phải phụ thuộc hoàn toàn vào key (nếu key có 2 cột thì phụ thuộc vào key 2 cột, key 1 cột thì ...) 
 
-[20]
+[22]
 3NF là 2NF, những cột k phải key phải phụ thuộc hoàn toàn vào key (2NF) 
  với thêm 1 điều kiện, và những cột k phải không phụ thuộc vào bất kì cột nào khác ngoài key 
- 
-chuẩn 4NF, 5NF thì mn tự tìm đọc thêm nhé ạ, tại để hiểu thì cần mấy cái ví dụ nó hơi dài code nên slide nên mình lười viết vào, có thể hiểu đơn giản là k lưu data kiểu là kết quả của phép join ấy, vì sẽ bị trùng lặp dữ liệu 
+
+[24]
+Fourth Normal Form (4NF)
+4NF deals with multi-valued dependencies. A table is in 4NF if it is in Boyce-Codd Normal Form (BCNF) and has no multi-valued dependencies.
+
+[26]
+5NF, or Project-Join Normal Form (PJNF), deals with join dependencies. A table is in 5NF if it is in 4NF and cannot be decomposed into smaller tables without losing information.
+
+[27]
+Which One is Better?
+The choice between 3NF and 5NF depends on your specific needs:
+
+3NF: This is often sufficient for most practical applications. It reduces redundancy and avoids update anomalies, making it easier to maintain data integrity1.
+
+5NF: This is more advanced and is used in cases where the database needs to be free of all join dependencies. It is typically used in complex databases where data integrity and minimal redundancy are critical2.
+
+In general, 3NF is more commonly used because it strikes a good balance between normalization and performance. 5NF is used in more specialized scenarios where the highest level of normalization is required.
+
+có thể hiểu đơn giản là k lưu data kiểu là kết quả của phép join ấy, vì sẽ bị trùng lặp dữ liệu 
 Mình để link video minh họa dễ hiểu ở đây ạ. Mn có thể xem qua 
 https://www.youtube.com/watch?v=GFQaEYEc8_8 
 
+[28]
+**Transaction**
+A transaction really is nothing but a collection of SQL queries that are treated as one unit of work.
+And the reason we are treating this as one unit of work, because the the nature of SQL or the structured  query language is my data is, is is structured, it has many tables. So it's very hard to do everything you want in one query. Sometimes it's impossible, right?
+So that you really need to do one or more queries to achieve what you logically want at the application.
+Usually transactions are used to change and modify data. That's that's what we always think about transaction.
+But actually it's perfectly normal.To have a read only transaction.
+**WHEN**Read-only transactions are useful in scenarios where you need to ensure data consistency and integrity while performing read operations without making any changes to the data. Here are some common situations where read-only transactions are beneficial:
+- Reporting and Analytics: When generating reports or performing data analysis, you want to ensure that the data remains consistent throughout the transaction. A read-only transaction ensures that the data you read is not modified by other transactions during the process.
+- Data Integrity Checks: When performing data integrity checks or validations, you want to ensure that the data remains unchanged during the validation process. A read-only transaction helps maintain data consistency.
+- Snapshot Isolation: In scenarios where you need to take a consistent snapshot of the data at a specific point in time, a read-only transaction ensures that the data remains unchanged during the snapshot process.
+- Long-Running Queries: For long-running queries, a read-only transaction ensures that the data remains consistent throughout the duration of the query, preventing any changes that could affect the query results.
+BEGIN COMMIT ROLLBACK 
+
+[32]
+**Atomicity**
+It's like an atom. And until now, an atom cannot be split. atomic bombs. DARK JOKE nuclear fission 
+*QnA* - nếu trong 1 transaction có 100 query, 98 cái chạy OK, cái 99 failed (do lỗi syntax hoặc runtime error gì đó) thì cái 98 cái trc đó và cái 100 sẽ ntn ? 
+>>> 
+(1) như ai cũng đã biết -> rollback 
+(2) commit thành công 
+(3) sẽ ntn nếu cái 99 kia đang chạy, nhẽ ra nó k lỗi j, nhưng RDBMS bị sấp, ví dụ server mất điện =>>> cũng auto rollback 
+cái này là tùy cách từng loại RDBMS Thì sẽ khác nhau vd Postgres, vd 1 số cái khác ... UNDO .. REDO lúc restart 
+
+[32]
+**Isolation**
+PROBLEMS (Read phenomena) 
+SOLUTION (Isolation Levels) 
+
+[38] 
+Dirty Read: A transaction reads data written by another uncommitted transaction.
+Dirty Read : Đọc data mà bị rollback later 
+>> tệ hại nhất, hầu hết defaul Isolation Level của RDBMS đã chặn cái này rồi, nhưng có cái vẫn cho enable lại 
+
+[41]
+Non-repeatable Read: A transaction reads the same row twice and finds different data each time because another transaction has modified the row.
+Non-repeatable Read : Đọc data mà bị commit giữa chừng 
+defaul Isolation Level của hầu hết RDBMS 
+
+[44]
+Phantom Read: A transaction re-executes a query and finds that the set of rows satisfying the query condition has changed due to another transaction inserting or deleting rows.
+
+[49]
+Lost Update
+A lost update occurs when two or more transactions simultaneously update the same data, and one of the updates is overwritten by another, resulting in the loss of the first update.
+
+[50]
+SOLUTION (Isolation Levels) 
+● Read uncommitted - No Isolation, any change from the outside is visible to the transaction, committed or not.
+● Read committed - Each query in a transaction only sees committed changes by other transactions
+● Repeatable Read - The transaction will make sure that when a query reads a row, that row will remain unchanged while its running.
+● Snapshot - Each query in a transaction only sees changes that have been committed up to the start of the transaction. It's like a snapshot version of the database at that moment. 
+(chụp ảnh cả cái db tại time đó) 
+● Serializable - Transactions are run as if they serialized one after the other. >> Reduce Concurrency 
+
+**● Each DBMS implements Isolation level differently**
+Locking Mechanism:
+Pessimistic: Locks data until transaction completes
+Optimistic: Checks for conflicts at commit time
+● Pessimistic - Row level locks, table locks, page locks to avoid lost updates
+● Optimistic - No locks, just track if things changed and fail the transaction if so
+● Repeatable read “locks” the rows it reads but it could be expensive if you read a lot of rows, postgres implements RR as snapshot. That is why you don’t get phantom reads with postgres in repeatable read
+● Serializable are usually implemented with optimistic concurrency control, you can implement it pessimistically with SELECT FOR UPDATE
+
+[52]
+**Consistency**
+Consistency in DATA : Model, constraints :PK, FK, unique, not null, default, check ... 
+Consistency in READ
+cái mình data đang có có phải là cái thực sự đang lưu trong bộ nhớ k ? 
+đương nhiên là phải lấy ra từ DB, nhưng khi DB có nhiều instans, nhiều sharding ... -> dữ liệu có thể khác . vì 1 db để ghi (master) nhiều replica chẳ hạn ... 
+
+[53]
+Consistency in DATA : Model, constraints :PK, FK, unique, not null, default, check ... -> define by user (người dùng DB)
+ví dụ : picture 1 có 2 like, picture_likes check ra đúng là có Jon với Edmond like thật ...
+-> data nhất quán với nhau 
+ví dụ nữa là ng đăng ảnh 2 xóa ảnh đi thì data ai like ảnh 2 (ở đây là jon cũng tự động xóa đi) DELETE ON CASADE 
+VD trong transacion chuyển tiền, ông A muốn chuyển tiền cho ông B 100k mà còn có 99k -> fail, rollback (vi phạm 1 cái constrain đc setup trc) 
+[54]
+Consistency in READ : Ông đỏ update X xong, commit rồi liệu ông xanh đọc X có thấy được ngay lập tức không 
+cái mình data đang có có phải là cái thực sự đang lưu trong bộ nhớ k ? 
+đương nhiên là phải lấy ra từ DB, nhưng khi DB có nhiều instans, nhiều sharding ... -> dữ liệu có thể khác . vì 1 db để ghi (master) nhiều replica chẳ hạn ... 
+Trade of for performance in NoSQL : Eventualy -> no right or wrong answer. 
+● Strong consistency ● guarantees that every read operation returns the most recent write operation's result, regardless of which node the read operation is executed on. This ensures that all clients always see the same data at the same time. 
+Cons:
+Higher latency due to the need to synchronize data across all nodes.
+Reduced availability and scalability, as the system may need to wait for all nodes to be updated before responding to a read request.
+
+●Eventual Consistency ●  given enough time, all nodes will converge to the same value for a given data item. However, there may be temporary inconsistencies between nodes. NCL đọc rất nhanh nhưng có thế k đúng, vì phải tầm 5p, 10p giữa cách node mới synch data với nhau 1 lần chả hạn 
+Pros:
+High availability and low latency, as nodes can respond to read and write requests independently.
+Better scalability, as the system does not need to synchronize data across all nodes immediately.
+Cons:
+Temporary inconsistencies may occur, which can be problematic for applications requiring real-time data accuracy.
+Requires conflict resolution mechanisms to handle data discrepancies.
+
+[55]
+**Durability** : Changes made by committed transactions must be persisted in a durable non-volatile storage. NCL commit rồi thì server có bị sập thì lúc bật RDBMS lên lại thì vẫn có cái data mình đã commit 
+cái này chủ yếu là DB nó implement hết rồi nên mình cũng kc hiểu nhiều mình chỉ nói qua thôi, b nào đam mê tìm hiểu sâu thì tự tìm hiểu thêm nhé ạ , mình đọc nhiều thấy đau đầu quá nên skip
+● Durability techniques : 
+	○ WAL - Write ahead log
+		Writing a lot of data to disk is expensive (indexes, data files, columns, rows, etc..) That is why DBMSs persist a compressed version of the  changes known as WAL (write-ahead-log segments
+		-> viết hết lên disk thì rất chậm -> viết lên mem, ghi log trc, lúc restart RDBMS thì check log có thể sửa lại data trong disk 
+		Description: Before any changes are made to the database, they are first written to a log. This log is used to redo the changes in case of a system crash.
+		How it works: The log records the details of each transaction before it is applied to the database. If a failure occurs, the log can be used to replay the transactions and restore the database to a consistent state1.
+	○ Asynchronous/Synchronous snapshot: chụp lại cả DB 
+	○ AOF
+	(Append Only File) is a persistence mechanism used in databases like Redis to ensure durability. 
+	Logging Operations: AOF logs every write operation received by the server. These operations are appended to the AOF file.
+	Replaying Logs: Upon server startup, the AOF file is replayed to reconstruct the original dataset. This ensures that all write operations are reapplied, maintaining data consistency
+**● Each DBMS implements differently**
+
+chốt lại cái hình 4 màu này sau đống slide dài quá dài thì thì mình cần nhớ gì lúc code, lv với SQL nc 
+A: transaction BEGIN COMMIT ROLLBACK, VÀ đang trong transaction mà DB sập thì cũng rollback hết   
+I: 4 cái Isolation level để set lúc dùng transaction  
+● Read uncommitted 
+● Read committed 
+● Repeatable Read 
+● Snapshot
+● Serializable
+C: DATA build data model : mấy cái chuẩn NF kia, mấy cái từ khóa PK, FK, unique, not null, default, check mấy cái ràng buộc >0 on insert / delete update thì CASCADE hay là set null hay là default hay là k làm j ... trigger function procedure ... j j đó 
+READ RDBMS nếu k sharding mặc định là STRONG consistency
+D: chỉ cần biết là nó như vậy thôi là đc
+
+[58]
+SQL Execution Order giups 
+
+
+Sure! Here are some tips to help you write faster SQL queries:
+
+Use Indexes: Indexes can significantly speed up data retrieval. Make sure to index columns that are frequently used in WHERE, JOIN, and ORDER BY clauses.
+
+Avoid "SELECT star": Instead of selecting all columns, specify only the columns you need. This reduces the amount of data transferred and processed.
+
+Use Joins Wisely: Be mindful of the type of joins you use. Inner joins are generally faster than outer joins. Also, ensure that the join conditions are properly indexed.
+
+Limit the Number of Subqueries: Subqueries can be slow. Try to use joins or temporary tables instead.
+
+Optimize WHERE Clauses: Use indexed columns in your WHERE clauses and avoid functions on columns in the WHERE clause, as this can prevent the use of indexes.
+
+Use Proper Data Types: Ensure that you are using the most efficient data types for your columns. For example, use INT instead of VARCHAR for numeric data.
+
+Avoid Unnecessary Columns in GROUP BY and ORDER BY: Only include columns that are necessary for your query.
+
+Use Query Execution Plans: Analyze the execution plan of your query to identify bottlenecks and optimize accordingly.
+
+Batch Updates and Inserts: Instead of updating or inserting rows one at a time, batch them together to reduce the number of transactions.
+
+Regularly Update Statistics: Ensure that your database statistics are up-to-date to help the query optimizer make better decisions.
+
+Do you have a specific query you're working on that you'd like help with?
+ 
+[59]
+Both B-tree and bitmap indexes are used to improve the performance of database queries, but they have different use cases and characteristics:
+
+B-tree Indexes -> ID, date time ...  / default 
+Structure: B-tree indexes are balanced tree structures that maintain sorted data and allow searches, sequential access, insertions, and deletions in logarithmic time.
+Use Case: Ideal for columns with high cardinality (many unique values), such as primary keys or columns with unique constraints.
+Performance: Efficient for transactional systems (OLTP) where data is frequently updated. They perform well with range queries and equality searches.
+Storage: Typically require more storage space compared to bitmap indexes.
+Bitmap Indexes -> Category low cardinality
+Structure: Bitmap indexes use bitmaps (arrays of bits) to represent the presence of a value in a column. Each bit in the bitmap corresponds to a row in the table.
+Use Case: Best suited for columns with low cardinality (few unique values), such as gender or status columns. They are commonly used in data warehousing and decision support systems (DSS).
+Performance: Highly efficient for read-heavy operations and complex queries involving multiple conditions. They are not ideal for environments with frequent updates, as updating a bitmap index can be costly.
+Storage: Generally require less storage space, especially for columns with low cardinality, due to the compression of bitmaps.
+When to Use Each
+B-tree Index: Use when you have high-cardinality columns, need to support frequent updates, and require efficient range queries.
+Bitmap Index: Use when you have low-cardinality columns, the environment is read-heavy with infrequent updates, and you need to perform complex queries with multiple conditions.
+Would you like more details on how to implement these indexes in a specific database system?
+
+[62] 
+cái execution plan này thì mỗi một rdbms nó lại khác nhau nên mình nói 1 cái đại diện thôi nhé 
+chém gió chém gió oracle 
+chạy từ dưới lên theo tứ tự sql order đã nói ở trên 
+
+#TODO ##
+Execution Plan -> nói DETAIL về những phần mình hiểu của Oracle, check lại cái git repo cũ ... 
+
+## Sơ lược thôi# về Partitioning vs Sharding
+
+## Sơ lược thôi Concurrency Control
+
+## Lướt lướt về Replication và Security 
+
+# Discusion >>> QnA của mn + QUIZZ
