@@ -355,8 +355,6 @@ D: chỉ cần biết là nó như vậy thôi là đc
 
 [58]
 SQL Execution Order giups 
-
-
 Sure! Here are some tips to help you write faster SQL queries:
 
 Use Indexes: Indexes can significantly speed up data retrieval. Make sure to index columns that are frequently used in WHERE, JOIN, and ORDER BY clauses.
