@@ -5,6 +5,7 @@ import time
 start_time = time.time()
 
 def binary_search(arr, target):
+    
     low = 0
     high = len(arr) - 1
     while low <= high:
