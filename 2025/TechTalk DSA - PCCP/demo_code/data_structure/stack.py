@@ -2,16 +2,22 @@
 class StackArray:
     def __init__(self):
         self.stack = []
+        self.stack1 = [None] * 10  # Example of a fixed-size array, not used in this implementation
+        self.head = 0
 
     def push(self, value):
         self.stack.append(value)
+        self.head += 1
 
     def pop(self):
+        # head -- 
+        # return self.stack[self.head - 1]
         if not self.is_empty():
             return self.stack.pop()
         raise IndexError("Pop from empty stack")
 
     def peek(self):
+        # return self.stack[self.head - 1]
         if not self.is_empty():
             return self.stack[-1]
         raise IndexError("Peek from empty stack")

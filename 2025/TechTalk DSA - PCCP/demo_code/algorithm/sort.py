@@ -1,4 +1,5 @@
 # Bubble Sort
+# TC : O(N^2) SC: O(1)
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -18,7 +19,7 @@ def insertion_sort(arr):
             j -= 1
         arr[j + 1] = key
 
-
+# TC: O(nlogn) SC: O(n)
 # Merge Sort
 def merge_sort(arr):
     if len(arr) > 1:
@@ -49,6 +50,7 @@ def merge_sort(arr):
             j += 1
             k += 1
 
+# TC : O(NlogN) SC: O(1)
 # Quick Sort
 def quick_sort(arr):
     def partition(low, high):

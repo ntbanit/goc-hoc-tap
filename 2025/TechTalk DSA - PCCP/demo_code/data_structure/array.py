@@ -42,3 +42,10 @@ arr.update(0, 5)
 print(arr)
 arr.delete(1)
 print(arr)
+
+
+# 
+arr = []        # arr = new ArrayList<> 
+arr1 = [0] * 10 # int [] arr1 = new int[10]
+
+# 

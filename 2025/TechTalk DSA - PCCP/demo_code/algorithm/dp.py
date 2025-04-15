@@ -9,6 +9,12 @@ def fibonacci(n):
 
     return dp[n]
 
+# 2 dices target 7
+# 1 + 6 , 2 + 5 , 3 + 4 
+
+# 
+
+# 10 dices target 14 
 
 # Dice Count Problem using Dynamic Programming
 # Count the number of ways to get a sum `target` using a dice (1 to 6)
