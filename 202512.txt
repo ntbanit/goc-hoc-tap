@@ -1,0 +1,15 @@
+12/2025
+D&A Development Team
+Essential Operating System for Developers
+Nguyễn Thị Bình An
+Nhóm kỹ thuật: Developer, DevOps, Tech Lead
+
+
+- Fundamentals and Core Operating System Concepts
+- Performance Eficiency : Concurrency, Blocking IO, Memory & Storage
+- Networking and Security
+- Shell and CLI Essentials
+- Comparing OS, VM, and Containerization 
+
+
+Apply these concepts through sofware development life cycle, especial in development, deployment and monitoring phase 
